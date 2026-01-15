@@ -1,0 +1,129 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ https://%{HTTP_HOST}/$1 [L,R=301]
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+  BrowserMatch ^Mozilla/4 no-gzip
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary Accept-Encoding env=!dont-vary
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 2 days"
+  ExpiresByType text/html "access plus 1 day"
+  ExpiresByType application/xhtml+xml "access plus 1 day"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/json "access plus 1 day"
+</IfModule>
+
+FileETag None
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), payment=()"
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.googletagmanager.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; connect-src 'self' *.google-analytics.com *.analytics.google.com *.googletagmanager.com"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set Permissions-Policy "interest-cohort=()"
+</IfModule>
+
+<FilesMatch "\.(env|json|xml|yml|yaml|sql|conf|config|git|md|txt|log)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+<Files ~ "^\.ht">
+Order allow,deny
+Deny from all
+</Files>
+
+<FilesMatch "^(robots\.txt|sitemap\.xml|sitemap-index\.xml)$">
+Allow from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  SetEnvIf Request_URI ".*" bad_bot=0
+  SetEnvIf User-Agent "^.*Ahrefsbot.*" bad_bot
+  SetEnvIf User-Agent "^.*SemrushBot.*" bad_bot
+  SetEnvIf User-Agent "^.*MJ12bot.*" bad_bot
+  SetEnvIf User-Agent "^.*scrapy.*" bad_bot
+  SetEnvIf User-Agent "^.*curl.*" bad_bot
+  SetEnvIf User-Agent "^.*wget.*" bad_bot
+  Order allow,deny
+  Allow from all
+  Deny from env=bad_bot
+</IfModule>
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+Options -Indexes
+
+AddDefaultCharset utf-8
+AddCharset UTF-8 .css .js .xml .md .mdown .markdown
+
+AddType application/json .json
+AddType application/rss+xml .xml
+AddType text/html .html
+AddType font/woff2 .woff2
+AddType font/woff .woff
+AddType application/font-woff .woff
+AddType application/octet-stream .pdf
+
+<IfModule mod_headers.c>
+  <IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule (.+)\.(jpg|jpeg|png|gif)$ $1.webp [T=image/webp,L]
+  </IfModule>
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header unset X-Powered-By
+  Header unset X-AspNet-Version
+  Header unset X-AspNetMvc-Version
+</IfModule>
+
+# RewriteEngine On
+
+# RewriteCond %{HTTP_REFERER} !^https://hello-rizz.vercel.app [NC]
+
+# RewriteCond %{HTTP_REFERER} !^https://www.hello-rizz.vercel.app [NC]
+
+# RewriteCond %{HTTP_REFERER} !^$
+
+# RewriteRule \.(gif|jpg|jpeg|png|webp)$ - [NC,F,L]
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|DELETE|CONNECT|DEBUG) [NC]
+  RewriteRule .* - [F]
+</IfModule>
+
+# Keep alive
+
+Header set Connection keep-alive

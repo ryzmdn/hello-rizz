@@ -1,3 +1,161 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
 
-@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --base-50: oklch(98.5% 0 0);
+  --base-100: oklch(97% 0 0);
+  --base-200: oklch(92.2% 0 0);
+  --base-300: oklch(87% 0 0);
+  --base-400: oklch(70.8% 0 0);
+  --base-500: oklch(55.6% 0 0);
+  --base-foreground-50: oklch(14.5% 0 0);
+  --base-foreground-100: oklch(20.5% 0 0);
+  --base-foreground-200: oklch(26.9% 0 0);
+  --base-foreground-300: oklch(37.1% 0 0);
+  --base-foreground-400: oklch(43.9% 0 0);
+  --static-50: oklch(98.5% 0 0);
+  --static-100: oklch(97% 0 0);
+  --static-200: oklch(92.2% 0 0);
+  --static-300: oklch(87% 0 0);
+  --static-400: oklch(70.8% 0 0);
+  --static-500: oklch(55.6% 0 0);
+  --static-600: oklch(43.9% 0 0);
+  --static-700: oklch(37.1% 0 0);
+  --static-800: oklch(26.9% 0 0);
+  --static-900: oklch(20.5% 0 0);
+  --static-950: oklch(14.5% 0 0);
+  --bright-blue: oklch(54.6% 0.245 262.881);
+  --electric-violet: oklch(54.1% 0.281 293.009);
+  --french-violet: oklch(49.1% 0.27 292.581);
+  --vivid-pink: oklch(65.6% 0.241 354.308);
+  --hot-red: oklch(61.42% 0.238 15.34);
+  --orange-red: oklch(63.32% 0.24 31.68);
+  --red-pink-purple-vertical-gradient: linear-gradient(
+    180deg,
+    var(--orange-red) 0%,
+    var(--vivid-pink) 50%,
+    var(--electric-violet) 100%
+  );
+  --red-pink-purple-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--orange-red) 0%,
+    var(--vivid-pink) 50%,
+    var(--electric-violet) 100%
+  );
+  --pill-accent: var(--bright-blue);
+
+  --base-font-family: 'Google Sans', 'Google Sans Italic', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+}
+
+.dark {
+  --base-50: oklch(14.5% 0 0);
+  --base-100: oklch(20.5% 0 0);
+  --base-200: oklch(26.9% 0 0);
+  --base-300: oklch(37.1% 0 0);
+  --base-400: oklch(43.9% 0 0);
+  --base-foreground-50: oklch(98.5% 0 0);
+  --base-foreground-100: oklch(97% 0 0);
+  --base-foreground-200: oklch(92.2% 0 0);
+  --base-foreground-300: oklch(87% 0 0);
+  --base-foreground-400: oklch(70.8% 0 0);
+  --bright-blue: oklch(62.3% 0.214 259.815);
+  --electric-violet: oklch(60.6% 0.25 292.717);
+  --french-violet: oklch(70.2% 0.183 293.541);
+  --vivid-pink: oklch(71.8% 0.202 349.761);
+  --hot-red: oklch(68.02% 0.208 14.918);
+  --orange-red: oklch(69.54% 0.21 32.176);
+}
+
+@theme inline {
+  --color-base-50: var(--base-50);
+  --color-base-100: var(--base-100);
+  --color-base-200: var(--base-200);
+  --color-base-300: var(--base-300);
+  --color-base-400: var(--base-400);
+  --color-base-500: var(--base-500);
+  --color-base-foreground-50: var(--base-foreground-50);
+  --color-base-foreground-100: var(--base-foreground-100);
+  --color-base-foreground-200: var(--base-foreground-200);
+  --color-base-foreground-300: var(--base-foreground-300);
+  --color-base-foreground-400: var(--base-foreground-400);
+  --color-base-foreground-500: var(--base-foreground-500);
+  --color-static-50: var(--static-50);
+  --color-static-100: var(--static-100);
+  --color-static-200: var(--static-200);
+  --color-static-300: var(--static-300);
+  --color-static-400: var(--static-400);
+  --color-static-500: var(--static-500);
+  --color-static-600: var(--static-600);
+  --color-static-700: var(--static-700);
+  --color-static-800: var(--static-800);
+  --color-static-900: var(--static-900);
+  --color-static-950: var(--static-950);
+  --color-bright-blue: var(--bright-blue);
+  --color-electric-violet: var(--electric-violet);
+  --color-french-violet: var(--french-violet);
+  --color-vivid-pink: var(--vivid-pink);
+  --color-hot-red: var(--hot-red);
+  --color-orange-red: var(--orange-red);
+  --color-red-pink-purple-vertical: var(--red-pink-purple-vertical-gradient);
+  --color-red-pink-purple-horizontal: var(--red-pink-purple-horizontal-gradient);
+  --color-pill-accent: var(--pill-accent);
+
+  --font-sans: var(--base-font-family);
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./assets/fonts/GoogleSans.ttf') format('trueType');
+}
+
+@font-face {
+  font-family: 'Google Sans Italic';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./assets/fonts/GoogleSans-Italic.ttf') format('trueType');
+}
+
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url('./assets/fonts/MaterialSymbolsOutlined.woff2') format('woff2');
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+
+  img {
+    @apply pointer-events-none select-none;
+  }
+}
+
+@layer utilities {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-static-600) var(--color-base-300);
+    transition: all 0.4s linear;
+  }
+
+  ::selection {
+    @apply bg-bright-blue/80 text-base-100;
+  }
+
+  ::-moz-selection {
+    @apply bg-bright-blue/80 text-base-100;
+  }
+  
+  .icon-outlined {
+    font-family: 'Material Symbols Outlined';
+  }
+}
