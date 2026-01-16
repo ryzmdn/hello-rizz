@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /private
+Disallow: /api/
+
+Allow: /assets/
+Allow: /public/
+
+Sitemap: https://link-bio.example.com/sitemap.xml
+
+Crawl-delay: 1
+
+Request-rate: 30/60
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

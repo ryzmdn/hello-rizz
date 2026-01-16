@@ -1,0 +1,41 @@
+{
+  "name": "Link Bio - Connect with Riz",
+  "short_name": "Link Bio",
+  "description": "Discover Riz's portfolio, blog, social media, and creative projects all in one place.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "categories": ["productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/screenshot-2.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "prefer_related_applications": false
+}

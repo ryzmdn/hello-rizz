@@ -19,13 +19,7 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "public/manifest.json",
-              "public/robots.txt",
-              "public/sitemap.xml"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css"],
             "server": "src/main.server.ts",
             "outputMode": "server",
