@@ -8,9 +8,10 @@ import { TwitterPostComponent } from '@/shared/components/twitter-post/twitter-p
 import { LayoutComponent } from '@/shared/components/layout/layout';
 import { VideoComponent } from '@/shared/components/video/video';
 import { SpotifyComponent } from '@/shared/components/spotify/spotify';
-import { GithubRepoComponent } from "@/shared/components/github-repo/github-repo";
-import { MainContainerComponent } from "@/shared/components/main-container/main-container";
-import { BlogPostComponent } from "@/shared/components/blog-post/blog-post";
+import { GithubRepoComponent } from '@/shared/components/github-repo/github-repo';
+import { MainContainerComponent } from '@/shared/components/main-container/main-container';
+import { BlogPostComponent } from '@/shared/components/blog-post/blog-post';
+import { NotificationComponent } from "./shared/components/ui/notification/notification";
 
 @Component({
   selector: 'app-root',
@@ -26,9 +27,11 @@ import { BlogPostComponent } from "@/shared/components/blog-post/blog-post";
     VideoComponent,
     GithubRepoComponent,
     MainContainerComponent,
-    BlogPostComponent
+    BlogPostComponent,
+    NotificationComponent
 ],
   template: `
+    <app-notification></app-notification>
     <app-layout>
       <app-header></app-header>
       <app-main-container>

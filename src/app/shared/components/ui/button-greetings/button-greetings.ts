@@ -22,7 +22,7 @@ import { ButtonComponent } from '@/shared/components/ui/button/button';
         <div class="px-4 py-5 sm:p-6">
           <h3 class="text-base font-semibold text-base-foreground-200">What is your name?</h3>
           <div class="mt-2 max-w-xl text-sm text-base-500">
-            <p>Change the email address you want associated with your account.</p>
+            <p>Enter your name to receive a personalized greeting.</p>
           </div>
           <div class="mt-5 sm:flex sm:items-center sm:gap-x-3">
             <div class="w-full sm:max-w-xs">

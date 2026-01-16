@@ -27,7 +27,7 @@ import { ContainerComponent } from '@/shared/components/container/container';
           </div>
           <div class="group relative grow">
             <h3 class="mt-3 text-lg/6 font-semibold text-base-foreground-200">
-              <a [href]="blogUrl + '/blog/read/' + blog.slug" target="_blank">
+              <a [href]="blogUrl() + '/blog/read/' + blog.slug" target="_blank">
                 <span class="absolute inset-0"></span>
                 {{ blog.title }}
               </a>
@@ -47,7 +47,7 @@ export class BlogPostComponent {
 
   protected readonly title = signal<string>('Latest Article Post');
   protected readonly blogUsername = signal<string>('ryzmdn');
-  protected readonly blogUrl = signal<string>('https://ryznote.vercel.app');
+  protected readonly blogUrl = signal<string>('https://ryznotes.vercel.app');
   protected readonly blogIcon = signal<string>('assets/images/ryznotes.png');
 
   posts: ArticlePost[] = [];

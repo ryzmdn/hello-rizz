@@ -22,11 +22,11 @@ export interface ButtonConfig {
 }
 
 export const buttonVariants = {
-  base: "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  base: "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   
   variants: {
     variant: {
-      default: "bg-base-foreground-100 text-base-200 hover:bg-base-foreground-100/90 disabled:bg-base-500",
+      default: "bg-base-foreground-100 text-base-200 hover:bg-base-foreground-100/90",
       destructive: "bg-hot-red text-static-100 hover:bg-hot-red/90 focus-visible:ring-hot-red/20 dark:focus-visible:ring-hot-red/40 dark:bg-hot-red/60",
       outline: "border bg-background shadow-xs hover:bg-base-100 hover:text-base-foreground-100 dark:bg-base-foreground-400/30 dark:border-base-foreground-400 dark:hover:bg-base-foreground-400/50",
       secondary: "bg-base-100 text-base-foreground-200 hover:bg-base-200/80",

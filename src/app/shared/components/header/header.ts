@@ -5,14 +5,8 @@ import { NgOptimizedImage, CommonModule } from '@angular/common';
 import { IconComponent } from '@/shared/components/ui/icon/icon';
 import { ToggleThemeComponent } from '@/shared/components/ui/toggle-theme/toggle-theme';
 import { ButtonComponent } from '@/shared/components/ui/button/button';
-import { ButtonGreetings } from "@/shared/components/ui/button-greetings/button-greetings";
-
-interface Info {
-  type: 'icon' | 'image';
-  icon?: string;
-  image?: string;
-  label: string;
-}
+import { ButtonGreetings } from '@/shared/components/ui/button-greetings/button-greetings';
+import { NotificationService } from '@/core/services/notification/notification';
 
 @Component({
   selector: 'app-header',
@@ -23,11 +17,13 @@ interface Info {
     ButtonComponent,
     CommonModule,
     FormsModule,
-    ButtonGreetings
-],
+    ButtonGreetings,
+  ],
   template: `
     <header id="base-heading" class="flow-root space-y-4 px-4 sm:px-6 lg:px-0">
-      <div class="group size-28 mx-auto p-1.5 rounded-full border border-base-200 shadow-xs sm:size-32">
+      <div
+        class="group size-28 mx-auto p-1.5 rounded-full border border-base-200 shadow-xs sm:size-32"
+      >
         <div class="relative size-full rounded-full overflow-hidden shadow-2xl">
           <img
             [ngSrc]="pictureImage()"
@@ -66,7 +62,10 @@ interface Info {
         <div
           class="flex justify-center items-center text-base leading-7 gap-x-2 text-base-foreground-300 mt-1 mb-2 sm:gap-x-2.5"
         >
-          @for (item of profileInfo(); track item.label; let i = $index) { @if (i > 0) {
+          @for (item of [ { type: 'icon', icon: 'person', label: 'Developer' }, { type: 'image',
+          image: 'https://www.svgrepo.com/show/401654/flag-for-indonesia.svg', label: 'Indonesia',
+          }, { type: 'icon', icon: 'work', label: 'Freelancer' }, ]; track item.label; let i =
+          $index) { @if (i > 0) {
           <svg
             viewBox="0 0 3 3"
             width="3"
@@ -142,27 +141,23 @@ export class HeaderComponent {
   protected readonly portfolioUrl = signal<string>('ryzdev.vercel.app');
   protected readonly email = signal<string>('rizkyramadhanrpd@gmail.com');
   protected readonly pictureImage = signal<string>('assets/images/picture.webp');
-  protected readonly profileInfo = signal<Info[]>([
-    { type: 'icon', icon: 'person', label: 'Developer' },
-    {
-      type: 'image',
-      image: 'https://www.svgrepo.com/show/401654/flag-for-indonesia.svg',
-      label: 'Indonesia',
-    },
-    { type: 'icon', icon: 'work', label: 'Freelancer' },
-  ]);
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private notificationService: NotificationService) {}
 
   copyCurrentUrl(): void {
     const url = window.location.origin + this.router.url;
     navigator.clipboard
       .writeText(url)
       .then(() => {
-        alert('Successfully shared the link!');
+        this.notificationService.show('Link copied successfully!', {
+          type: 'success',
+          icon: 'link',
+        });
       })
       .catch(() => {
-        alert('Failed to share the link.');
+        this.notificationService.show('Failed to copy the link.', {
+          type: 'error',
+        });
       });
   }
 }
