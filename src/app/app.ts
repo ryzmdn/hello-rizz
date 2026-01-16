@@ -12,6 +12,7 @@ import { GithubRepoComponent } from '@/shared/components/github-repo/github-repo
 import { MainContainerComponent } from '@/shared/components/main-container/main-container';
 import { BlogPostComponent } from '@/shared/components/blog-post/blog-post';
 import { NotificationComponent } from "./shared/components/ui/notification/notification";
+import { CallToAction } from "./shared/components/call-to-action/call-to-action";
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,8 @@ import { NotificationComponent } from "./shared/components/ui/notification/notif
     GithubRepoComponent,
     MainContainerComponent,
     BlogPostComponent,
-    NotificationComponent
+    NotificationComponent,
+    CallToAction
 ],
   template: `
     <app-notification></app-notification>
@@ -43,6 +45,7 @@ import { NotificationComponent } from "./shared/components/ui/notification/notif
         <app-github-repo></app-github-repo>
         <app-spotify></app-spotify>
         <app-blog-post></app-blog-post>
+        <app-call-to-action></app-call-to-action>
       </app-main-container>
       <app-footer></app-footer>
     </app-layout>

@@ -15,12 +15,17 @@ import { CommonModule } from '@angular/common';
     >
       <header class="w-full pb-5 sm:flex sm:items-center sm:justify-between" [id]="id">
         <h3 class="text-lg font-semibold text-base-foreground-200">{{ title }}</h3>
+        @if (username) {
         <div class="mt-3 sm:mt-0 sm:ml-4">
-          <a [href]="url" class="flex items-center gap-x-2 text-sm text-base-foreground-300 px-2 py-1.5 rounded-md hover:bg-base-200">
+          <a
+            [href]="url"
+            class="flex items-center gap-x-2 text-sm text-base-foreground-300 px-2 py-1.5 rounded-md hover:bg-base-200"
+          >
             <img [src]="logo" alt="logo" class="size-4" />
             <span>&#64;{{ username }}</span>
           </a>
         </div>
+        }
       </header>
 
       <div class="w-full bg-transparent" [ngClass]="class">
@@ -30,11 +35,11 @@ import { CommonModule } from '@angular/common';
   `,
 })
 export class ContainerComponent {
-  @Input() id: string = '';
-  @Input() title: string = '';
-  @Input() logo?: string = 'https://www.svgrepo.com/show/303670/firebase-1-logo.svg';
-  @Input() username: string = '';
-  @Input() url: string = '';
+  @Input() id?: string = '';
+  @Input() title?: string = '';
+  @Input() logo?: string = '';
+  @Input() username?: string = '';
+  @Input() url?: string = '';
   @Input() class?: string = '';
 
   private layout = inject(LayoutComponent, { optional: true });
