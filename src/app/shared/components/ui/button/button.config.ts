@@ -29,7 +29,7 @@ export const buttonVariants = {
       default: "bg-base-foreground-100 text-base-200 hover:bg-base-foreground-100/90 disabled:bg-base-500",
       destructive: "bg-hot-red text-static-100 hover:bg-hot-red/90 focus-visible:ring-hot-red/20 dark:focus-visible:ring-hot-red/40 dark:bg-hot-red/60",
       outline: "border bg-background shadow-xs hover:bg-base-100 hover:text-base-foreground-100 dark:bg-base-foreground-400/30 dark:border-base-foreground-400 dark:hover:bg-base-foreground-400/50",
-      secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+      secondary: "bg-base-100 text-base-foreground-200 hover:bg-base-200/80",
       ghost: "text-base-500 hover:bg-base-200 hover:text-base-foreground-200",
       link: "text-primary underline-offset-4 hover:underline"
     },

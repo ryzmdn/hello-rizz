@@ -16,9 +16,9 @@ interface Social {
         [href]="social.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-x-1.5 w-max px-2 py-1 bg-base-200 hover:bg-base-300 rounded-full"
+        class="flex items-center gap-x-1.5 w-max px-2 py-1 bg-base-100 hover:bg-base-200 rounded-full"
       >
-        <img [src]="social.icon" [alt]="'follow my ' + social.name" class="size-5" />
+        <img [src]="social.icon" [alt]="'follow my ' + social.name" class="size-4.5" />
         <span class="text-base-foreground-200">{{ social.name }}</span>
       </a>
       }
