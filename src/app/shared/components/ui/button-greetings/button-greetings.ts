@@ -10,7 +10,7 @@ import { ButtonComponent } from '@/shared/components/ui/button/button';
   template: `
     <button ui-button size="lg" (click)="openNameDialog()" class="w-full">
       <app-icon name="waving_hand" [fill]="0" [fontSize]="20" />
-      Hello World
+      Greetings
     </button>
 
     @if (isDialogOpen()) {
@@ -20,7 +20,6 @@ import { ButtonComponent } from '@/shared/components/ui/button/button';
     >
       <div
         class="relative bg-base-100 rounded-lg shadow-lg p-6 w-full max-w-sm mx-4"
-        (click)="$event.stopPropagation()"
       >
         <h2 class="text-xl font-bold text-base-foreground-100 mb-4">What is your name?</h2>
         <input
@@ -36,12 +35,14 @@ import { ButtonComponent } from '@/shared/components/ui/button/button';
             Submit
           </button>
         </div>
+
+        <button type="button" (click)="$event.stopPropagation()" class="absolute inset-0" hidden>Stop Propagation</button>
       </div>
     </div>
     } @if (greetings()) {
     <div
       aria-live="assertive"
-      class="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
+      class="pointer-events-none fixed inset-0 z-50 flex items-end px-4 py-6 sm:items-start sm:p-6"
     >
       <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
         <div
