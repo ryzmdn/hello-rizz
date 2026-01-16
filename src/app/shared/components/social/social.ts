@@ -16,7 +16,7 @@ interface Social {
         [href]="social.url"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-x-1.5 w-max px-2 py-1 bg-base-100 hover:bg-base-200 rounded-full"
+        class="flex items-center gap-x-1.5 w-max px-2 py-1 bg-base-200 hover:bg-base-300 rounded-full"
       >
         <img [src]="social.icon" [alt]="'follow my ' + social.name" class="size-4.5" />
         <span class="text-base-foreground-200">{{ social.name }}</span>
@@ -29,37 +29,37 @@ export class SocialComponent {
   protected readonly socials = signal<Social[]>([
     {
       name: 'Twitter',
-      icon: 'https://www.svgrepo.com/show/475689/twitter-color.svg',
+      icon: 'assets/images/icons/twitter-color-svgrepo-com.svg',
       url: 'https://x.com/ryzmdn',
     },
     {
       name: 'Instagram',
-      icon: 'https://www.svgrepo.com/show/452229/instagram-1.svg',
+      icon: 'assets/images/icons/instagram-1-svgrepo-com.svg',
       url: 'https://instagram.com/ryzmdn',
     },
     {
       name: 'GitHub',
-      icon: 'https://www.svgrepo.com/show/512317/github-142.svg',
+      icon: 'assets/images/icons/github-svgrepo-com.svg',
       url: 'https://github.com/ryzmdn',
     },
     {
       name: 'Dribbble',
-      icon: 'https://www.svgrepo.com/show/153985/dribbble.svg',
+      icon: 'assets/images/icons/dribbble-svgrepo-com.svg',
       url: 'https://dribbble.com/ryzmdn',
     },
     {
       name: 'CodePen',
-      icon: 'https://www.svgrepo.com/show/508790/codepen-02.svg',
+      icon: 'assets/images/icons/codepen-02-svgrepo-com.svg',
       url: 'https://codepen.io/ryzmdn',
     },
     {
       name: 'LinkedIn',
-      icon: 'https://www.svgrepo.com/show/448234/linkedin.svg',
+      icon: 'assets/images/icons/linkedin-network-communication-connection-internet-online-svgrepo-com.svg',
       url: 'https://www.linkedin.com/in/ryzmdn',
     },
     {
       name: 'Facebook',
-      icon: 'https://www.svgrepo.com/show/349359/facebook.svg',
+      icon: 'assets/images/icons/facebook-color-svgrepo-com.svg',
       url: 'https://www.facebook.com/ryzmdn',
     },
   ]);

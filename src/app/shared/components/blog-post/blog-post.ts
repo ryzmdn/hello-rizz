@@ -47,8 +47,8 @@ export class BlogPostComponent {
 
   protected readonly title = signal<string>('Latest Article Post');
   protected readonly blogUsername = signal<string>('ryzmdn');
-  protected readonly blogUrl = signal<string>('https://github.com/exeriz/ryznotes/blob/main/src/assets/logo.webp?raw=true');
-  protected readonly blogIcon = signal<string>('https://ryznote.vercel.app');
+  protected readonly blogUrl = signal<string>('https://ryznote.vercel.app');
+  protected readonly blogIcon = signal<string>('assets/images/ryznotes.png');
 
   posts: ArticlePost[] = [];
   isLoading = true;

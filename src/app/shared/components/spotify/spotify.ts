@@ -31,7 +31,7 @@ export class SpotifyComponent {
   protected readonly title = signal<string>('Spotify Album');
   protected readonly spotifyUsername = signal<string>('ryzmdn');
   protected readonly spotifyIcon = signal<string>(
-    'https://www.svgrepo.com/show/475684/spotify-color.svg'
+    'assets/images/icons/spotify-color-svgrepo-com.svg'
   );
   protected readonly spotifyUrl = signal<string>(
     'https://open.spotify.com/user/31y7shgp4loiua7h7acnrklfrvxq?si=b0c3cc7226ea49a0'

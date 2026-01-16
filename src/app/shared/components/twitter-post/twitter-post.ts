@@ -29,7 +29,7 @@ import { NgOptimizedImage } from "@angular/common";
             <p class="text-lg font-medium text-base-foreground-200">Rizky Ramadhan</p>
 
             <div class="flex items-center gap-x-1.5 text-sm">
-              <p class="font-medium text-base-foreground-400">@{{ twitterUsername() }}</p>
+              <p class="font-medium text-base-foreground-400">&#64;{{ twitterUsername() }}</p>
               <svg
                 viewBox="0 0 3 3"
                 width="3"
@@ -76,6 +76,6 @@ export class TwitterPostComponent {
   protected readonly title = signal<string>('Featured Twitter Post');
   protected readonly twitterUsername = signal<string>('ryzmdn');
   protected readonly twitterUrl = signal<string>(`https://x.com/${this.twitterUsername()}`);
-  protected readonly twitterIcon = signal<string>('https://www.svgrepo.com/show/475689/twitter-color.svg');
+  protected readonly twitterIcon = signal<string>('assets/images/icons/twitter-color-svgrepo-com.svg');
   protected readonly twitterPicture = signal<string>('assets/images/picture.webp');
 }

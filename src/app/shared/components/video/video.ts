@@ -26,7 +26,7 @@ export class VideoComponent {
   protected readonly title = signal<string>('Featured YouTube Video');
   protected readonly youtubeUsername = signal<string>('ryzmdn');
   protected readonly youtubeUrl = signal<string>(`https://www.youtube.com/@${this.youtubeUsername()}`);
-  protected readonly youtubeIcon = signal<string>('https://www.svgrepo.com/show/475700/youtube-color.svg');
+  protected readonly youtubeIcon = signal<string>('assets/images/icons/youtube-color-svgrepo-com.svg');
   protected readonly videoSrc = signal<string>('https://youtu.be/QUoRZkpQXsE?si=kLCB5NU7QDDvBc79');
   protected readonly videoThumbnail = signal<string>('assets/images/thumbnail.webp');
 }

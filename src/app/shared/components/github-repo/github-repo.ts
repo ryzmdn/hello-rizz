@@ -70,7 +70,7 @@ interface Repository {
 export class GithubRepoComponent {
   protected readonly title = signal<string>('Featured Repository');
   protected readonly githubUsername = signal<string>('ryzmdn');
-  protected readonly githubIcon = signal<string>('https://www.svgrepo.com/show/512317/github-142.svg');
+  protected readonly githubIcon = signal<string>('assets/images/icons/github-svgrepo-com.svg');
   protected readonly githubUrl = signal<string>('https://github.com/ryzmdn');
 
   protected readonly repositories = signal<Repository[]>([

@@ -53,21 +53,21 @@ export class WebsiteComponent {
       summary:
         'Read, listen, and understand the Quran through various modern, easy-to-use features.',
       badge: 'Website',
-      logo: 'https://github.com/quranhuda/quranhuda/blob/main/public/logo.png?raw=true',
+      logo: 'assets/images/quranhuda.jpg',
       url: 'https://quranhuda.vercel.app/',
     },
     {
       name: 'RyzNotes',
       summary: 'My personal blog made with nextjs, tailwind and wordpress.',
       badge: 'Blog',
-      logo: 'https://github.com/exeriz/ryznotes/blob/main/src/assets/logo.webp?raw=true',
+      logo: 'assets/images/ryznotes.png',
       url: 'https://ryznotes.vercel.app/',
     },
     {
       name: 'RyzDev',
       summary: 'Documentation of several projects that I have made.',
       badge: 'Portfolio',
-      logo: 'https://github.com/ryzmdn/ryzdev/blob/main/public/logo512.png?raw=true',
+      logo: 'assets/images/ryzdev.png',
       url: 'https://ryzdev.vercel.app/',
     },
   ]);
