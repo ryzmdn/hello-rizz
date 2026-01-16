@@ -18,11 +18,11 @@ interface Story {
   selector: 'app-story',
   imports: [NgOptimizedImage, CommonModule, IconComponent],
   template: `
-    <div class="flex justify-between items-center my-5">
+    <div class="flex justify-between items-center gap-x-3 whitespace-nowrap my-5 pb-3 w-full overflow-x-auto">
       @for (story of story(); track story.label) {
       <figure class="relative group text-center w-max space-y-2 bg-transparent cursor-pointer">
         <div
-          class="flex justify-center items-center size-20 mx-auto bg-linear-to-br from-bright-blue to-hot-red p-0.5 rounded-full"
+          class="flex justify-center items-center size-16 mx-auto bg-linear-to-br from-bright-blue to-hot-red p-0.5 rounded-full sm:size-20"
         >
           <div class="size-full p-0.5 bg-base-50 rounded-full">
             <div class="relative size-full overflow-hidden rounded-full bg-base-50">
@@ -36,7 +36,7 @@ interface Story {
             </div>
           </div>
         </div>
-        <figcaption class="text-xs text-base-foreground-300">
+        <figcaption class="text-[0.55rem] text-base-foreground-300 sm:text-xs">
           <button type="button" (click)="openStory(story)" class="absolute inset-0">
             <span hidden>Show {{ story.label }} story</span>
           </button>
