@@ -27,7 +27,7 @@ interface Info {
 ],
   template: `
     <header id="base-heading" class="flow-root space-y-4 px-4 sm:px-6 lg:px-0">
-      <div class="group size-32 mx-auto p-1.5 rounded-full border border-base-200 shadow-xs">
+      <div class="group size-28 mx-auto p-1.5 rounded-full border border-base-200 shadow-xs sm:size-32">
         <div class="relative size-full rounded-full overflow-hidden shadow-2xl">
           <img
             [ngSrc]="pictureImage()"
@@ -42,7 +42,7 @@ interface Info {
       <div class="w-full text-center">
         <div class="relative w-max mx-auto">
           <h1
-            class="scroll-m-20 text-base-foreground-100 text-center text-3xl font-bold tracking-tight text-balance"
+            class="scroll-m-20 text-base-foreground-100 text-center text-2xl font-bold tracking-tight text-balance sm:text-3xl"
           >
             {{ name() }}
           </h1>
@@ -50,7 +50,7 @@ interface Info {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 48 48"
-            class="absolute top-1/2 -right-9 -translate-y-1/2 size-6"
+            class="absolute top-1/2 -right-7 -translate-y-1/2 size-5 sm:size-6 sm:-right-9"
           >
             <polygon
               fill="#42a5f5"
@@ -64,7 +64,7 @@ interface Info {
         </div>
 
         <div
-          class="flex justify-center items-center text-base leading-7 gap-x-2.5 text-base-foreground-300 mt-1 mb-2"
+          class="flex justify-center items-center text-base leading-7 gap-x-2 text-base-foreground-300 mt-1 mb-2 sm:gap-x-2.5"
         >
           @for (item of profileInfo(); track item.label; let i = $index) { @if (i > 0) {
           <svg
@@ -78,23 +78,23 @@ interface Info {
           </svg>
           }
 
-          <div class="flex items-center gap-x-2">
+          <div class="flex items-center gap-x-1 sm:gap-x-2">
             @if (item.type === 'icon') {
             <app-icon [name]="item.icon || 'I'" [fill]="0" [fontSize]="18" />
             } @else if (item.type === 'image') {
             <img [src]="item.image" [alt]="item.label" class="size-4" />
             }
-            <p>{{ item.label }}</p>
+            <p class="text-sm sm:text-base">{{ item.label }}</p>
           </div>
           }
         </div>
 
         <p class="text-base-foreground-300 leading-7 max-w-xl mx-auto">
-          Aspiring Software Engineer | Undergraduate Computer Science at
+          Aspiring Software Engineer &#124; Undergraduate Computer Science at
           <a ui-button variant="link" size="xs" href="https://unpam.ac.id"
             ><strong>Pamulang University</strong></a
           >
-          | Building Scalable Web &amp; Mobile App.
+          &#124; Building Scalable Web &amp; Mobile App.
         </p>
       </div>
 
@@ -106,7 +106,8 @@ interface Info {
             [fontSize]="18"
             customClass="text-base-foreground-400"
           />
-          <span class="text-base-foreground-100">{{ portfolioUrl() }}</span>
+          <span class="hidden text-base-foreground-100 sm:block">{{ portfolioUrl() }}</span>
+          <span class="block text-base-foreground-100 sm:hidden">Website</span>
         </a>
         <svg
           viewBox="0 0 3 3"
@@ -119,7 +120,8 @@ interface Info {
         </svg>
         <a ui-button variant="ghost" size="sm" [href]="'mailto:' + email()">
           <app-icon name="mail" [fill]="0" [fontSize]="18" customClass="text-base-foreground-400" />
-          <span class="text-base-foreground-100">{{ email() }}</span>
+          <span class="hidden text-base-foreground-100 sm:block">{{ email() }}</span>
+          <span class="block text-base-foreground-100 sm:hidden">Email</span>
         </a>
       </div>
 
@@ -141,7 +143,7 @@ export class HeaderComponent {
   protected readonly email = signal<string>('rizkyramadhanrpd@gmail.com');
   protected readonly pictureImage = signal<string>('assets/images/picture.webp');
   protected readonly profileInfo = signal<Info[]>([
-    { type: 'icon', icon: 'person', label: 'Web Developer' },
+    { type: 'icon', icon: 'person', label: 'Developer' },
     {
       type: 'image',
       image: 'https://www.svgrepo.com/show/401654/flag-for-indonesia.svg',
