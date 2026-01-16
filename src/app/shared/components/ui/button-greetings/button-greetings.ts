@@ -15,31 +15,42 @@ import { ButtonComponent } from '@/shared/components/ui/button/button';
 
     @if (isDialogOpen()) {
     <div
-      class="fixed inset-0 z-50 flex items-center justify-center bg-base-50/10 backdrop-blur-md"
       (click)="closeNameDialog()"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-base-50/10 backdrop-blur-md"
     >
-      <div
-        class="relative bg-base-100 rounded-lg shadow-lg p-6 w-full max-w-sm mx-4"
-      >
-        <h2 class="text-xl font-bold text-base-foreground-100 mb-4">What is your name?</h2>
-        <input
-          [(ngModel)]="userInputName"
-          (keyup.enter)="submitName()"
-          placeholder="e.g. John Doe"
-          maxlength="50"
-          class="w-full px-3 py-2 border border-base-200 rounded-md bg-base-50 text-base-foreground-100 placeholder-base-foreground-400 focus:outline-none focus:ring-2 focus:ring-bright-blue mb-6"
-        />
-        <div class="flex gap-x-2 justify-end">
-          <button ui-button variant="destructive" (click)="closeNameDialog()">Cancel</button>
-          <button ui-button (click)="submitName()" [disabled]="!userInputName.trim()">
-            Submit
-          </button>
+      <div (click)="$event.stopPropagation()" class="relative bg-base-100 shadow-sm sm:rounded-lg">
+        <div class="px-4 py-5 sm:p-6">
+          <h3 class="text-base font-semibold text-base-foreground-200">What is your name?</h3>
+          <div class="mt-2 max-w-xl text-sm text-base-500">
+            <p>Change the email address you want associated with your account.</p>
+          </div>
+          <div class="mt-5 sm:flex sm:items-center sm:gap-x-3">
+            <div class="w-full sm:max-w-xs">
+              <input
+                id="name"
+                name="name"
+                placeholder="e.g, John Doe"
+                aria-label="Name"
+                [(ngModel)]="userInputName"
+                (keyup.enter)="submitName()"
+                maxlength="50"
+                class="block w-full rounded-md bg-base-50 px-3 py-1.5 text-base text-base-foreground-100 outline-1 -outline-offset-1 outline-base-200 placeholder:text-base-400 focus:outline-2 focus:-outline-offset-2 focus:outline-base-foreground-200 sm:text-sm/6"
+              />
+            </div>
+            <button ui-button (click)="submitName()" [disabled]="!userInputName.trim()">
+              Submit
+            </button>
+          </div>
         </div>
 
-        <button type="button" (click)="$event.stopPropagation()" class="absolute inset-0" hidden>Stop Propagation</button>
+        <button ui-button variant="ghost" size="icon-sm" (click)="closeNameDialog()" class="absolute top-3 right-3">
+          <app-icon name="close" [fill]="0" [fontSize]="18" />
+        </button>
       </div>
     </div>
-    } @if (greetings()) {
+    }
+    
+    @if (greetings()) {
     <div
       aria-live="assertive"
       class="pointer-events-none fixed inset-0 z-50 flex items-end px-4 py-6 sm:items-start sm:p-6"
@@ -59,17 +70,9 @@ import { ButtonComponent } from '@/shared/components/ui/button/button';
                 />
               </div>
               <div class="ml-3 w-0 flex-1 pt-0.5">
-                <div class="flex justify-between items-center">
-                  <p class="text-base leading-7 capitalize font-medium text-base-foreground-200">
-                    Hello {{ greetings() }}!
-                  </p>
-
-                  <div class="ml-4 flex shrink-0">
-                    <button ui-button variant="ghost" size="icon-sm" (click)="closeNameDialog()">
-                      <app-icon name="close" [fill]="0" [fontSize]="18" />
-                    </button>
-                  </div>
-                </div>
+                <p class="text-base leading-7 capitalize font-medium text-base-foreground-200">
+                  Hello {{ greetings() }}!
+                </p>
                 <p class="mt-1 text-sm text-base-foreground-400">
                   Thank you for visiting this bio link.
                 </p>
@@ -100,7 +103,6 @@ export class ButtonGreetings {
   submitName(): void {
     if (!this.userInputName.trim()) return;
 
-    // Limit to 2 words maximum
     const words = this.userInputName.trim().split(/\s+/);
     const name = words.slice(0, 2).join(' ');
 
